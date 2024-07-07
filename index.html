@@ -1,4 +1,7 @@
-<!DOCTYPE HTML>
+<div class="g-recaptcha"
+                        data-sitekey="6Le7cgoqAAAAAMNmHwcz4qB_CTTyOVbTlIp2VFeQ"
+                        data-callback='onSubmit'
+                        data-action='submit'><!DOCTYPE HTML>
 <htmld>
     <title>Contact ShawavaTritya</title>
     <meta charset="utf-8" />
@@ -85,7 +88,11 @@
                         <textarea name="message" id="message" rows="4" required></textarea>
                         <span class="error" id="message-error"></span>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6Le7cgoqAAAAAMNmHwcz4qB_CTTyOVbTlIp2VFeQ"></div>
+                    <div class="g-recaptcha"
+                        data-sitekey="6Le7cgoqAAAAAMNmHwcz4qB_CTTyOVbTlIp2VFeQ"
+                        data-callback='onSubmit'
+                        data-action='submit'>
+                    </div>
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" class="special" /></li>
                         <li><input type="reset" value="Reset" /></li>
@@ -112,6 +119,11 @@
     <div id="bg"></div>
 
     <!-- Scripts -->
+    <script>
+      function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+      }
+    </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
