@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
-<html>
-<head>
+<htmld>
     <title>Contact ShawavaTritya</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le7cgoqAAAAAMNmHwcz4qB_CTTyOVbTlIp2VFeQ"></script>
+  <!-- Your code -->
 </head>
 <body>
 
@@ -70,17 +71,21 @@
                 <h2 class="major">Contact</h2>
                 <form method="post" action="mailto:shawavatritya@gmail.com">
                     <div class="field half first">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" />
+                        <label for="name">Nama</label>
+                        <input type="text" name="name" id="name" required />
+                        <span class="error" id="name-error"></span>
                     </div>
                     <div class="field half">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" />
+                        <input type="email" name="email" id="email" required />
+                        <span class="error" id="email-error"></span>
                     </div>
                     <div class="field">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" rows="4"></textarea>
+                        <label for="message">Pesan</label>
+                        <textarea name="message" id="message" rows="4" required></textarea>
+                        <span class="error" id="message-error"></span>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6Le7cgoqAAAAAMNmHwcz4qB_CTTyOVbTlIp2VFeQ"></div>
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" class="special" /></li>
                         <li><input type="reset" value="Reset" /></li>
