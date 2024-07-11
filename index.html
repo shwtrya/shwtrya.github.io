@@ -70,7 +70,7 @@
             <!-- Contact -->
             <article id="contact">
                 <h2 class="major">Contact</h2>
-                <form method="post" action="sendwhatsapp();">
+                <form method="post">
                     <div class="field half first">
                         <label for="name">Nama</label>
                         <input type="text" name="name" id="name" required />
@@ -87,8 +87,7 @@
                         <span class="error" id="message-error"></span>
                     </div>
                         <div class="g-recaptcha" data-sitekey="6LfI0woqAAAAAOsf7gn3XMb-UllvxWAZk2bcZl_Q"></div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Send Message" class="special" /></li>
+                        <button type="submit" onclick="sendwhatsapp();" class="spesial">Send Via WhatsApp</button>
                         <li><input type="reset" value="Reset" /></li>
                     </ul>
                 </form>
