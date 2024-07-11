@@ -8,6 +8,17 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const url = `https://wa.me/6289521658672?text=Nama:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APesan:%20${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </head>
 <body>
 
@@ -58,18 +69,18 @@
                 <h2 class="major">About</h2>
                 <span class="image main"><img src="images/pic03.jpg" alt="" /></span>
                 <p>Jika ada pertanyaan tentang cara membuat bot WhatsApp atau membuat website, bisa tanyakan ke saya. Dan juga saya menyediakan 
-                    🗳️ Jasa bikin 
-                    website pribadi 
-                    🗳️ Jasa bikin bot WhatsApp
-                    🗳️ Jasa Upload github
-                    Dll, Saya akan melayani anda dengan benar dan pastinya aman. Jika ada keluhan bisa chat saya melalui gmail shawavatritya@gmail.com Atau WhatsApp 089521658672
+                    🗳️ Jasa Editing CV 
+                    🗳️ Jasa Bikin Bot WhatsApp
+                    🗳️ Jasa Upload Github
+                    🗳️ Top Up Games
+                    Dll, Saya akan melayani anda dengan benar dan pastinya aman. Jika ada keluhan bisa chat saya melalui <a href="#contact">Contact</a>.
                 </p>
             </article>
 
             <!-- Contact -->
             <article id="contact">
                 <h2 class="major">Contact</h2>
-                <form method="post" action="https://wa.me/6289521658672?text=Nama:%20%0AEmail:%20%0APesan:%20">
+                <form onsubmit="sendMessage(event)">
                     <div class="field half first">
                         <label for="name">Nama</label>
                         <input type="text" name="name" id="name" required />
@@ -89,9 +100,9 @@
                 </form>
                 <ul class="icons">
                     <li><a href="https://wa.me/6289521658672" class="icon fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-                    <li><a href="https://shawavatritya.my.id" class="icon fa-edit"><span class="label">Browser</span></a></li>
+                    <li><a href="https://profile.shawavatritya.my.id" class="icon fa-edit"><span class="label">Browser</span></a></li>
                     <li><a href="https://instagram.com/shwtr.ya" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://github.com/shwtr.ya" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="https://github.com/CyXd404" class="icon fa-github"><span class="label">GitHub</span></a></li>
                 </ul>
             </article>
 
@@ -115,3 +126,4 @@
 
 </body>
 </html>
+
