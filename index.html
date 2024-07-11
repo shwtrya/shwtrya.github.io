@@ -70,7 +70,7 @@
             <!-- Contact -->
             <article id="contact">
                 <h2 class="major">Contact</h2>
-                <form method="post" action="mailto:shawavatritya@gmail.com">
+                <form method="post" action="send.php" target="_blank">
                     <div class="field half first">
                         <label for="name">Nama</label>
                         <input type="text" name="name" id="name" required />
@@ -83,9 +83,10 @@
                     </div>
                     <div class="field">
                         <label for="message">Pesan</label>
-                        <textarea name="message" id="message" rows="4" required></textarea>
+                        <textarea name="message" id="message" rows="3" required></textarea>
                         <span class="error" id="message-error"></span>
                     </div>
+                        <input type="hidden" name="noWa" value="6289521658672">
                         <div class="g-recaptcha" data-sitekey="6LfI0woqAAAAAOsf7gn3XMb-UllvxWAZk2bcZl_Q"></div>
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" class="special" /></li>
