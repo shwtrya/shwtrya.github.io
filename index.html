@@ -16,7 +16,7 @@
             const message = document.getElementById('message').value;
 
             const url = `https://wa.me/6289521658672?text=Nama:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APesan:%20${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+            window.location.href(url, '_blank');
         }
     </script>
 </head>
@@ -70,7 +70,7 @@
                 <span class="image main"><img src="images/pic03.jpg" alt="" /></span>
                 <p>Jika ada pertanyaan tentang cara membuat bot WhatsApp atau membuat website, bisa tanyakan ke saya. Dan juga saya menyediakan 
                     🗳️ Jasa Editing CV 
-                    🗳️ Jasa Bikin Bot WhatsApp
+                    🗳️ Jasa Bot WhatsApp
                     🗳️ Jasa Upload Github
                     🗳️ Top Up Games
                     Dll, Saya akan melayani anda dengan benar dan pastinya aman. Jika ada keluhan bisa chat saya melalui <a href="#contact">Contact</a>.
@@ -91,7 +91,7 @@
                     </div>
                     <div class="field">
                         <label for="message">Pesan</label>
-                        <textarea name="message" id="message" rows="4" required></textarea>
+                        <textarea name="message" id="message" rows="3" required></textarea>
                     </div>
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" class="special" /></li>
