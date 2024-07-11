@@ -70,7 +70,7 @@
             <!-- Contact -->
             <article id="contact">
                 <h2 class="major">Contact</h2>
-                <form method="post" action="send.php" target="_blank">
+                <form method="post" action="sendwhatsapp();">
                     <div class="field half first">
                         <label for="name">Nama</label>
                         <input type="text" name="name" id="name" required />
@@ -86,13 +86,32 @@
                         <textarea name="message" id="message" rows="3" required></textarea>
                         <span class="error" id="message-error"></span>
                     </div>
-                        <input type="hidden" name="noWa" value="6289521658672">
                         <div class="g-recaptcha" data-sitekey="6LfI0woqAAAAAOsf7gn3XMb-UllvxWAZk2bcZl_Q"></div>
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" class="special" /></li>
                         <li><input type="reset" value="Reset" /></li>
                     </ul>
                 </form>
+                <script>
+                 function sendwhatsapp(){
+                 var phonenumber = "+6285101556689";
+                     
+                 var name = document.querySelector(".name").value;
+                 var email = document.querySelector(".email").value;
+                 var country = document.querySelector(".country").value;
+                 var message = document.querySelector(".message").value;
+
+               var url = "https://wa.me/" + phonenumber + "?text="
+                +"*Name :* "+name+"%0a"
+                +"*Email :* "+email+"%0a"
+                +"*Country:* "+country+"%0a"
+                +"*Message :* "+message
+                +"%0a%0a"
+                +"This is an example of send HTML form data to WhatsApp";
+                     
+          window.open(url, '_blank').focus();
+           }
+             </script>
                 <ul class="icons">
                     <li><a href="https://wa.me/+6289521658672" class="icon fa-whatsapp"><span class="label">WhatsApp</span></a></li>
                     <li><a href="https://profile.shawavatritya.my.id" class="icon fa-edit"><span class="label">Browser</span></a></li>
