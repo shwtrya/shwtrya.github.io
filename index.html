@@ -16,11 +16,17 @@
             const message = document.getElementById('message').value;
 
             const url = `https://wa.me/6289521658672?text=Nama:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APesan:%20${encodeURIComponent(message)}`;
-            window.location.href(url, '_blank');
+            window.open(url, '_blank');
+        }
+
+        function closeWindow() {
+            setTimeout(() => {
+                window.close();
+            }, 10000); // 10000 milidetik = 10 detik
         }
     </script>
 </head>
-<body>
+<body onload="closeWindow()">
 
     <!-- Wrapper -->
     <div id="wrapper">
