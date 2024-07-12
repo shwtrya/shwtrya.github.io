@@ -15,17 +15,16 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                alert('Please complete the reCAPTCHA.');
+                return;
+            }
+
             const url = `https://wa.me/6289521658672?text=Nama:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APesan:%20${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
 
-        function closeWindow() {
-            setTimeout(() => {
-                window.close();
-            }, 10000); // 10000 milidetik = 10 detik
-        }
-
-        window.onload = closeWindow;
     </script>
 </head>
 <body>
@@ -101,6 +100,7 @@
                         <label for="message">Pesan</label>
                         <textarea name="message" id="message" rows="3" required></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LfI0woqAAAAAOsf7gn3XMb-UllvxWAZk2bcZl_Q"></div>
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" class="special" /></li>
                         <li><input type="reset" value="Reset" /></li>
