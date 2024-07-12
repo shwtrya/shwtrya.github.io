@@ -5,132 +5,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
-        function sendMessage(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (recaptchaResponse.length === 0) {
-                alert('Please complete the reCAPTCHA.');
-                return;
-            }
-
-            const url = `https://wa.me/6289521658672?text=Nama:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APesan:%20${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+        function decodeHtml(encodedHtml) {
+            var element = document.createElement('div');
+            element.innerHTML = atob(encodedHtml);
+            return element.textContent;
         }
 
+        document.addEventListener('DOMContentLoaded', function() {
+            var encodedHtml = "PCFET0NUWVBFIEhUTUw-CjxodG1sPgo8aGVhZD4KICAgIDx0aXRsZT5Db250YWN0IFNoYXdhdmEgVHJpdHlhPC90aXRsZT4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04IiAvPgogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLCB1c2VyLXNjYWxhYmxlPW5vIiAvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJhc3NldHMvY3NzL21haW4uY3NzIiAvPgogICAgPCEtLVtpZiBsdGUgSUUgOV0-PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJhc3NldHMvY3NzL2llOS5jc3MiIC8-PCFbZW5kaWZdLS0-CiAgICA8bm9zY3JpcHQ-PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJhc3NldHMvY3NzL25vc2NyaXB0LmNzcyIgLz48L25vc2NyaXB0PgogICAgPHNjcmlwdCBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vcmVjYXB0Y2hhL2FwaS5qcyIgYXN5bmMgZGVmZXI-PC9zY3JpcHQ-CiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNlbmRNZXNzYWdlKGV2ZW50KSB7CiAgICAgICAgICAgIGV2ZW50LnByZXZlbnREZWZhdWx0KCk7CiAgICAgICAgICAgIGNvbnN0IG5hbWUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbmFtZScpLnZhbHVlOwogICAgICAgICAgICBjb25zdCBlbWFpbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdlbWFpbCcpLnZhbHVlOwogICAgICAgICAgICBjb25zdCBtZXNzYWdlID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21lc3NhZ2UnKS52YWx1ZTsKCiAgICAgICAgICAgIGNvbnN0IHJlY2FwdGNoYVJlc3BvbnNlID0gZ3JlY2FwdGNoYS5nZXRSZXNwb25zZSgpOwogICAgICAgICAgICBpZiAocmVjYXB0Y2hhUmVzcG9uc2UubGVuZ3RoID09PSAwKSB7CiAgICAgICAgICAgICAgICBhbGVydCgnUGxlYXNlIGNvbXBsZXRlIHRoZSByZUNBUFRDSEEuJyk7CiAgICAgICAgICAgICAgICByZXR1cm47CiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGNvbnN0IHVybCA9IGBodHRwczovL3dhLm1lLzYyODk1MjE2NTg2NzI_dGV4dD1OYW1hOiUyMCR7ZW5jb2RlVVJJQ29tcG9uZW50KG5hbWUpfSUwQUVtYWlsOiUyMCR7ZW5jb2RlVVJJQ29tcG9uZW50KGVtYWlsKX0lMEFQZXNhbjolMjAke2VuY29kZVVSSUNvbXBvbmVudChtZXNzYWdlKX1gOwogICAgICAgICAgICB3aW5kb3cub3Blbih1cmwsICdfYmxhbmsnKTsKICAgICAgICB9CgogICAgPC9zY3JpcHQ-CjwvaGVhZD4KPGJvZHk-CgogICAgPCEtLSBXcmFwcGVyIC0tPgogICAgPGRpdiBpZD0id3JhcHBlciI-CgogICAgICAgIDwhLS0gSGVhZGVyIC0tPgogICAgICAgIDxoZWFkZXIgaWQ9ImhlYWRlciI-CiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImxvZ28iPgogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9Imljb24gZmEtZGlhbW9uZCI-PC9zcGFuPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29udGVudCI-CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJpbm5lciI-CiAgICAgICAgICAgICAgICAgICAgPGgxPlNoYXdhdmEgVHJpdHlhPC9oMT4KICAgICAgICAgICAgICAgICAgICA8cD5XZWxjb21lIFRvIE15IFdlYnNpdGU8L3A-CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPC9kaXY-CiAgICAgICAgICAgIDxuYXY-CiAgICAgICAgICAgICAgICA8dWw-CiAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGhyZWY9IiNpbnRybyI-SW50cm88L2E-PC9saT4KICAgICAgICAgICAgICAgICAgICA8bGk-PGEgaHJlZj0iI3dvcmsiPlRlbnRhbmc8L2E-PC9saT4KICAgICAgICAgICAgICAgICAgICA8bGk-PGEgaHJlZj0iI2Fib3V0Ij5BYm91dDwvYT48L2xpPgogICAgICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSIjY29udGFjdCI-Q29udGFjdDwvYT48L2xpPgogICAgICAgICAgICAgICAgPC91bD4KICAgICAgICAgICAgPC9uYXY-CiAgICAgICAgPC9oZWFkZXI-CgogICAgICAgIDwhLS0gTWFpbiAtLT4KICAgICAgICA8ZGl2IGlkPSJtYWluIj4KCiAgICAgICAgICAgIDwhLS0gSW50cm8gLS0-CiAgICAgICAgICAgIDxhcnRpY2xlIGlkPSJpbnRybyI-CiAgICAgICAgICAgICAgICA8aDIgY2xhc3M9Im1ham9yIj5JbnRybzwvaDI-CiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0iaW1hZ2UgbWFpbiI-PGltZyBzcmM9ImltYWdlcy9waWMwMS5qcGciIGFsdD0iIiAvPjwvc3Bhbj4KICAgICAgICAgICAgICAgIDxwPlBlcmtlbmFsa2FuIG5hbWEgc2F5YSBTaGF3YXZhIFRyaXR5YSBUaW5nZ2FsIGRpIEJvZ29yLCBTYXlhIGFkYWxhaCBzZW9yYW5nIFByb2dyYW1tZXIgTmV3IGphZGkgYXBhIHlhbmcgc2F5YSBidWF0IHRpZGFrIDEwMCUgU2VtcHVybmEsIFNheWEgbWVtcHVueWFpIGJpc25pcyBrZWNpbCBoYWhhLiBJbmkgYWRhbGFoIHdlYnNpdGUgeWFuZyBzYXlhIGJ1YXQgc2FhdCBzYXlhIGJvc2FuICYgR2FidXQuIDxhIGhyZWY9IiN3b3JrIj5UZW50YW5nIEthbWk8L2E-LjwvcD4KICAgICAgICAgICAgPC9hcnRpY2xlPgoKICAgICAgICAgICAgPCEtLSBXb3JrIC0tPgogICAgICAgICAgICA8YXJ0aWNsZSBpZD0id29yayI-CiAgICAgICAgICAgICAgICA8aDIgY2xhc3M9Im1ham9yIj5UZW50YW5nPC9oMj4KICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPSJpbWFnZSBtYWluIj48aW1nIHNyYz0iaW1hZ2VzL3BpYzAyLmpwZyIgYWx0PSIiIC8-PC9zcGFuPgogICAgICAgICAgICAgICAgPHA-QWRpcGlzY2luZyBtYWduYSBzZWQgZG9sb3IgZWxpdC4gUHJhZXNlbnQgZWxlaWZlbmQgZGlnbmlzc2ltIGFyY3UsIGF0IGVsZWlmZW5kIHNhcGllbiBpbXBlcmRpZXQgYWMuIEFsaXF1YW0gZXJhdCB2b2x1dHBhdC4gUHJhZXNlbnQgdXJuYSBuaXNpLCBmcmluZ2lsYSBsb3JlbSBldCB2ZWhpY3VsYSBsYWNpbmlhIHF1YW0uIEludGVnZXIgc29sbGljaXR1ZGluIG1hdXJpcyBuZWMgbG9yZW0gbHVjdHVzIHVsdHJpY2VzLjwvcD4KICAgICAgICAgICAgICAgIDxwPk51bGxhbSBldCBvcmNpIGV1IGxvcmVtIGNvbnNlcXVhdCB0aW5jaWR1bnQgdml2YW11cyBldCBzYWdpdHRpcyBsaWJlcm8uIE1hdXJpcyBhbGlxdWV0IG1hZ25hIG1hZ25hIHNlZCBudW5jIHJob25jdXMgcGhhcmV0cmEuIFBlbGxlbnRlc3F1ZSBjb25kaW1lbnR1bSBzZW0uIEluIGVmZmljaXR1ciBsaWd1bGEgdGF0ZSB1cm5hLiBNYWVjZW5hcyBsYW9yZWV0IG1hc3NhIHZlbCBsYWNpbmlhIHBlbGxlbnRlc3F1ZSBsb3JlbSBpcHN1bSBkb2xvci4gTnVsbGFtIGV0IG9yY2kgZXUgbG9yZW0gY29uc2VxdWF0IHRpbmNpZHVudC4gVml2YW11cyBldCBzYWdpdHRpcyBsaWJlcm8uIE1hdXJpcyBhbGlxdWV0IG1hZ25hIG1hZ25hIHNlZCBudW5jIHJob25jdXMgYW1ldCBmZXVnaWF0IHRlbXB1cy48L3A-CiAgICAgICAgICAgIDwvYXJ0aWNsZT4KCiAgICAgICAgICAgIDwhLS0gQWJvdXQgLS0-CiAgICAgICAgICAgIDxhcnRpY2xlIGlkPSJhYm91dCI-CiAgICAgICAgICAgICAgICA8aDIgY2xhc3M9Im1ham9yIj5BYm91dDwvaDI-CiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0iaW1hZ2UgbWFpbiI-PGltZyBzcmM9ImltYWdlcy9waWMwMy5qcGciIGFsdD0iIiAvPjwvc3Bhbj4KICAgICAgICAgICAgICAgIDxwPkppa2EgYWRhIHBlcnRhbnlhYW4gdGVudGFuZyBjYXJhIG1lbWJ1YXQgYm90IFdoYXRzQXBwIGF0YXUgbWVtYnVhdCB3ZWJzaXRlLCBiaXNhIHRhbnlha2FuIGtlIHNheWEuIERhbiBqdWdhIHNheWEgbWVueWVkaWFrYW4gCiAgICAgICAgICAgICAgICAgICAg8J-Xs--4jyBKYXNhIEVkaXRpbmcgQ1YgCiAgICAgICAgICAgICAgICAgICAg8J-Xs--4jyBKYXNhIEJvdCBXaGF0c0FwcAogICAgICAgICAgICAgICAgICAgIPCfl7PvuI8gSmFzYSBVcGxvYWQgR2l0aHViCiAgICAgICAgICAgICAgICAgICAg8J-Xs--4jyBUb3AgVXAgR2FtZXMKICAgICAgICAgICAgICAgICAgICBEbGwsIFNheWEgYWthbiBtZWxheWFuaSBhbmRhIGRlbmdhbiBiZW5hciBkYW4gcGFzdGlueWEgYW1hbi4gSmlrYSBhZGEga2VsdWhhbiBiaXNhIGNoYXQgc2F5YSBtZWxhbHVpIDxhIGhyZWY9IiNjb250YWN0Ij5Db250YWN0PC9hPi4KICAgICAgICAgICAgICAgIDwvcD4KICAgICAgICAgICAgPC9hcnRpY2xlPgoKICAgICAgICAgICAgPCEtLSBDb250YWN0IC0tPgogICAgICAgICAgICA8YXJ0aWNsZSBpZD0iY29udGFjdCI-CiAgICAgICAgICAgICAgICA8aDIgY2xhc3M9Im1ham9yIj5Db250YWN0PC9oMj4KICAgICAgICAgICAgICAgIDxmb3JtIG9uc3VibWl0PSJzZW5kTWVzc2FnZShldmVudCkiPgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZpZWxkIGhhbGYgZmlyc3QiPgogICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWwgZm9yPSJuYW1lIj5OYW1hPC9sYWJlbD4KICAgICAgICAgICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIG5hbWU9Im5hbWUiIGlkPSJuYW1lIiByZXF1aXJlZCAvPgogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZpZWxkIGhhbGYiPgogICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWwgZm9yPSJlbWFpbCI-RW1haWw8L2xhYmVsPgogICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT0iZW1haWwiIG5hbWU9ImVtYWlsIiBpZD0iZW1haWwiIHJlcXVpcmVkIC8-CiAgICAgICAgICAgICAgICAgICAgPC9kaXY-CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZmllbGQiPgogICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWwgZm9yPSJtZXNzYWdlIj5QZXNhbjwvbGFiZWw-CiAgICAgICAgICAgICAgICAgICAgICAgIDx0ZXh0YXJlYSBuYW1lPSJtZXNzYWdlIiBpZD0ibWVzc2FnZSIgcm93cz0iMyIgcmVxdWlyZWQ-PC90ZXh0YXJlYT4KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJnLXJlY2FwdGNoYSIgZGF0YS1zaXRla2V5PSJZT1VSX1NJVEVfS0VZIj48L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8dWwgY2xhc3M9ImFjdGlvbnMiPgogICAgICAgICAgICAgICAgICAgICAgICA8bGk-PGlucHV0IHR5cGU9InN1Ym1pdCIgdmFsdWU9IlNlbmQgTWVzc2FnZSIgY2xhc3M9InNwZWNpYWwiIC8-PC9saT4KICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxpbnB1dCB0eXBlPSJyZXNldCIgdmFsdWU9IlJlc2V0IiAvPjwvbGk-CiAgICAgICAgICAgICAgICAgICAgPC91bD4KICAgICAgICAgICAgICAgIDwvZm9ybT4KICAgICAgICAgICAgICAgIDx1bCBjbGFzcz0iaWNvbnMiPgogICAgICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSJodHRwczovL3dhLm1lLzYyODk1MjE2NTg2NzIiIGNsYXNzPSJpY29uIGZhLXdoYXRzYXBwIj48c3BhbiBjbGFzcz0ibGFiZWwiPldoYXRzQXBwPC9zcGFuPjwvYT48L2xpPgogICAgICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSJodHRwczovL3Byb2ZpbGUuc2hhd2F2YXRyaXR5YS5teS5pZCIgY2xhc3M9Imljb24gZmEtZWRpdCI-PHNwYW4gY2xhc3M9ImxhYmVsIj5Ccm93c2VyPC9zcGFuPjwvYT48L2xpPgogICAgICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSJodHRwczovL2luc3RhZ3JhbS5jb20vc2h3dHIueWEiIGNsYXNzPSJpY29uIGZhLWluc3RhZ3JhbSI-PHNwYW4gY2xhc3M9ImxhYmVsIj5JbnN0YWdyYW08L3NwYW4-PC9hPjwvbGk-CiAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGhyZWY9Imh0dHBzOi8vZ2l0aHViLmNvbS9DeVhkNDA0IiBjbGFzcz0iaWNvbiBmYS1naXRodWIiPjxzcGFuIGNsYXNzPSJsYWJlbCI-R2l0SHViPC9zcGFuPjwvYT48L2xpPgogICAgICAgICAgICAgICAgPC91bD4KICAgICAgICAgICAgPC9hcnRpY2xlPgoKICAgICAgICA8L2Rpdj4KCiAgICAgICAgPCEtLSBGb290ZXIgLS0-CiAgICAgICAgPGZvb3RlciBpZD0iZm9vdGVyIj4KICAgICAgICAgICAgPHAgY2xhc3M9ImNvcHlyaWdodCI-JmNvcHk7IENvcHlyaWdodCBieSBDeXplclN0b3JlIDIwMjQ8L3A-CiAgICAgICAgPC9mb290ZXI-CgogICAgPC9kaXY-CgogICAgPCEtLSBCRyAtLT4KICAgIDxkaXYgaWQ9ImJnIj48L2Rpdj4KCiAgICA8IS0tIFNjcmlwdHMgLS0-CiAgICA8c2NyaXB0IHNyYz0iYXNzZXRzL2pzL2pxdWVyeS5taW4uanMiPjwvc2NyaXB0PgogICAgPHNjcmlwdCBzcmM9ImFzc2V0cy9qcy9za2VsLm1pbi5qcyI-PC9zY3JpcHQ-CiAgICA8c2NyaXB0IHNyYz0iYXNzZXRzL2pzL3V0aWwuanMiPjwvc2NyaXB0PgogICAgPHNjcmlwdCBzcmM9ImFzc2V0cy9qcy9tYWluLmpzIj48L3NjcmlwdD4KCjwvYm9keT4KPC9odG1sPgo";
+            document.body.innerHTML = decodeHtml(encodedHtml);
+        });
     </script>
 </head>
 <body>
-
-    <!-- Wrapper -->
-    <div id="wrapper">
-
-        <!-- Header -->
-        <header id="header">
-            <div class="logo">
-                <span class="icon fa-diamond"></span>
-            </div>
-            <div class="content">
-                <div class="inner">
-                    <h1>Shawava Tritya</h1>
-                    <p>Welcome To My Website</p>
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#intro">Intro</a></li>
-                    <li><a href="#work">Tentang</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Main -->
-        <div id="main">
-
-            <!-- Intro -->
-            <article id="intro">
-                <h2 class="major">Intro</h2>
-                <span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-                <p>Perkenalkan nama saya Shawava Tritya Tinggal di Bogor, Saya adalah seorang Programmer New jadi apa yang saya buat tidak 100% Sempurna, Saya mempunyai bisnis kecil haha. Ini adalah website yang saya buat saat saya bosan & Gabut. <a href="#work">Tentang Kami</a>.</p>
-            </article>
-
-            <!-- Work -->
-            <article id="work">
-                <h2 class="major">Tentang</h2>
-                <span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-                <p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-                <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
-            </article>
-
-            <!-- About -->
-            <article id="about">
-                <h2 class="major">About</h2>
-                <span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-                <p>Jika ada pertanyaan tentang cara membuat bot WhatsApp atau membuat website, bisa tanyakan ke saya. Dan juga saya menyediakan 
-                    🗳️ Jasa Editing CV 
-                    🗳️ Jasa Bot WhatsApp
-                    🗳️ Jasa Upload Github
-                    🗳️ Top Up Games
-                    Dll, Saya akan melayani anda dengan benar dan pastinya aman. Jika ada keluhan bisa chat saya melalui <a href="#contact">Contact</a>.
-                </p>
-            </article>
-
-            <!-- Contact -->
-            <article id="contact">
-                <h2 class="major">Contact</h2>
-                <form onsubmit="sendMessage(event)">
-                    <div class="field half first">
-                        <label for="name">Nama</label>
-                        <input type="text" name="name" id="name" required />
-                    </div>
-                    <div class="field half">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" required />
-                    </div>
-                    <div class="field">
-                        <label for="message">Pesan</label>
-                        <textarea name="message" id="message" rows="3" required></textarea>
-                    </div>
-                    <div class="g-recaptcha" data-sitekey="6LfI0woqAAAAAOsf7gn3XMb-UllvxWAZk2bcZl_Q"></div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Send Message" class="special" /></li>
-                        <li><input type="reset" value="Reset" /></li>
-                    </ul>
-                </form>
-                <ul class="icons">
-                    <li><a href="https://wa.me/6289521658672" class="icon fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-                    <li><a href="https://profile.shawavatritya.my.id" class="icon fa-edit"><span class="label">Browser</span></a></li>
-                    <li><a href="https://instagram.com/shwtr.ya" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://github.com/CyXd404" class="icon fa-github"><span class="label">GitHub</span></a></li>
-                </ul>
-            </article>
-
-        </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <p class="copyright">&copy; Copyright by CyzerStore 2024</p>
-        </footer>
-
-    </div>
-
-    <!-- BG -->
-    <div id="bg"></div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
+    <noscript>
+        <strong>We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
 </body>
 </html>
