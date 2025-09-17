@@ -1,82 +1,140 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <title>Shwtrya – Portofolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portofolio pribadi Shwtrya, web developer & UI enthusiast.">
-  <meta name="color-scheme" content="dark light">
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Portofolio Shawava Tritya, pelajar SMK Negeri 1 Cileungsi jurusan Teknik Komputer Jaringan." />
+    <meta name="keywords" content="Portofolio, Shawava Tritya, TKJ, SMKN 1 Cileungsi, Website" />
+    <title>Portofolio Shawava Tritya</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <header>
-    <a href="#" class="logo">shwtrya</a>
-    <nav aria-label="primary">
-      <button id="nav-toggle" aria-expanded="false">☰</button>
-      <ul id="nav-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#works">Works</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero__text">
-        <h1>Halo, saya <span class="gradient">Shwtrya</span></h1>
-        <p>Web developer & UI enthusiast yang suka menciptakan pengalaman digital indah.</p>
-        <a href="#works" class="btn">Lihat karya →</a>
-      </div>
-      <div class="hero__img">
-        <img src="img/avatar.jpg" alt="Foto Shwtrya">
-      </div>
-    </section>
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <span class="icon fa-diamond"></span>
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h1>Shawava Tritya</h1>
+                    <p>Welcome To My Website</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#work">Tentang</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section id="about" class="about">
-      <h2>About</h2>
-      <p>Saya memulai perjalanan web dari tahun 2020. Senang eksperimen dengan CSS grid, animasi, dan performa. Saat ini fokus pada React & JAMstack.</p>
-    </section>
+        <!-- Main -->
+        <div id="main">
 
-    <section id="works" class="works">
-      <h2>Works</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="img/work1.jpg" alt="Project 1">
-          <h3>Project 1</h3>
-          <p>Dashboard analytics sederhana.</p>
-        </article>
-        <article class="card">
-          <img src="img/work2.jpg" alt="Project 2">
-          <h3>Project 2</h3>
-          <p>Landing page untuk startup fiktif.</p>
-        </article>
-        <article class="card">
-          <img src="img/work3.jpg" alt="Project 3">
-          <h3>Project 3</h3>
-          <p>Rest API & frontend todo-app.</p>
-        </article>
-      </div>
-    </section>
+            <!-- Intro -->
+            <article id="intro">
+                <h2 class="major">Intro</h2>
+                <span class="image main"><img src="images/pic1.jpg" alt="Foto Shawava Tritya" /></span>
+                <p>Perkenalkan nama saya <b>Shawava Tritya</b>, tinggal di Bogor. Saya adalah pelajar aktif di <b>SMK Negeri 1 Cileungsi</b> jurusan <b>Teknik Komputer Jaringan</b>. <a href="#work">Baca Tentang Saya</a>.</p>
+            </article>
 
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:shwtrya@example.com">shwtrya@example.com</a></p>
-      <div class="social">
-        <a href="https://github.com/shwtrya" target="_blank" aria-label="GitHub">GitHub</a>
-        <a href="https://linkedin.com/in/shwtrya" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-        <a href="https://twitter.com/shwtrya" target="_blank" aria-label="Twitter">Twitter</a>
-      </div>
-    </section>
-  </main>
+            <!-- Work -->
+            <article id="work">
+                <h2 class="major">Tentang</h2>
+                <span class="image main"><img src="images/pic2.jpg" alt="Tentang Shawava" /></span>
+                <p>Saya adalah pelajar <b>SMK Negeri 1 Cileungsi</b> jurusan <b>Teknik Komputer Jaringan</b> yang memiliki dasar dalam teknologi jaringan, pemrograman, dan administrasi sistem. Saya berkomitmen untuk memanfaatkan keahlian ini dalam mendukung kebutuhan teknologi dan jaringan pada kesempatan praktik kerja lapangan, sembari memperluas pengalaman serta keterampilan teknis di industri.</p>
+            </article>
 
-  <footer>© <span id="year"></span> Shwtrya – built with ❤ & pure CSS</footer>
+            <!-- About -->
+            <article id="about">
+                <h2 class="major">About</h2>
+                <span class="image main"><img src="images/pic3.jpg" alt="Profil Shawava" /></span>
+                <p>
+                    <b>Nama:</b> Shawava Tritya <br>
+                    <b>Tanggal Lahir:</b> Bogor, 11 Juni 2008 <br>
+                    <b>Email:</b> <a href="mailto:shawavatritya@gmail.com">shawavatritya@gmail.com</a><br>
+                    <b>Pendidikan:</b> SMK Negeri 1 Cileungsi <br>
+                    <b>No WhatsApp:</b> <a href="https://wa.me/6289521658672">0895-2165-8672</a>
+                </p>
+            </article>
 
-  <script src="js/main.js"></script>
+            <!-- Contact -->
+            <article id="contact">
+                <h2 class="major">Contact</h2>
+                <form onsubmit="sendMessage(event)">
+                    <div class="field half first">
+                        <label for="name">Nama</label>
+                        <input type="text" name="name" id="name" required />
+                    </div>
+                    <div class="field half">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required />
+                    </div>
+                    <div class="field">
+                        <label for="message">Pesan</label>
+                        <textarea name="message" id="message" rows="3" required></textarea>
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="6LfI0woqAAAAAOsf7gn3XMb-UllvxWAZk2bcZl_Q"></div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" class="special" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                    </ul>
+                </form>
+                <ul class="icons">
+                    <li><a href="https://wa.me/6289521658672" class="icon fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+                    <li><a href="https://profile.shawavatritya.my.id" class="icon fa-edit"><span class="label">Website</span></a></li>
+                    <li><a href="https://instagram.com/shwtr.ya" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com/CyXd404" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </article>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; 2024 Shawava Tritya. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Background -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Alert selamat datang
+        alert("Selamat datang di website portofolio saya!");
+
+        // Fungsi kirim pesan ke WhatsApp
+        function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                alert('Silakan lengkapi reCAPTCHA.');
+                return;
+            }
+
+            const url = `https://wa.me/6289521658672?text=Nama:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APesan:%20${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
